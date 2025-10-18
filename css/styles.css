@@ -168,6 +168,8 @@ button {
   grid-area: header;
   background-color: var(--clr-navy-900);
   border-radius: var(--sp-16);
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard__user {
@@ -177,6 +179,15 @@ button {
   gap: var(--sp-24);
   padding: var(--sp-32);
   border-radius: var(--sp-16);
+}
+
+@media (min-width: 80rem) {
+  .dashboard__user {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-40);
+    flex: 1;
+  }
 }
 
 .dashboard__avatar {
@@ -199,6 +210,12 @@ button {
   gap: var(--sp-8);
 }
 
+@media (min-width: 80rem) {
+  .dashboard__info {
+    gap: var(--sp-0);
+  }
+}
+
 .dashboard__text {
   font-size: var(--fs-15);
   font-weight: var(--fw-regular);
@@ -206,8 +223,13 @@ button {
 }
 
 .dashboard__username {
-  font-size: var(--fs-24);
+  font-size: clamp(
+    var(--fs-24),
+    calc(24px + (40 - 24) * ((100vw - 768px) / (1280 - 768))),
+    var(--fs-40)
+  );
   font-weight: var(--fw-light);
+  text-wrap: balance;
 }
 
 /****************************************************
@@ -220,12 +242,34 @@ button {
   align-items: center;
 }
 
+@media (min-width: 48rem) and (max-width: 79.9375rem) {
+  .dashboard__nav {
+    justify-content: center;
+    margin-inline: 6.25rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .dashboard__nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-24);
+    padding: var(--sp-32);
+  }
+}
+
 .dashboard__item {
   flex: 1;
   font-weight: var(--fw-regular);
   color: var(--clr-purple-500);
   padding-block: var(--sp-24);
   cursor: pointer;
+}
+
+@media (min-width: 80rem) {
+  .dashboard__item {
+    padding-block: var(--sp-0);
+  }
 }
 
 .dashboard__item:hover,
@@ -244,13 +288,16 @@ button {
   background-repeat: no-repeat;
   background-position-x: 92%;
   background-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .data {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--sp-8);
+  gap: clamp(var(--sp-8), 2vw, var(--sp-24));
   background-color: var(--clr-navy-900);
   border-radius: var(--sp-16);
   padding: var(--sp-24);
@@ -271,6 +318,12 @@ button {
   cursor: pointer;
 }
 
+@media (min-width: 48rem) and (max-width: 79.9375rem) {
+  .data__options img {
+    width: var(--sp-16);
+  }
+}
+
 .data__options:hover img,
 .data__options:focus-visible img {
   filter: invert(1) grayscale(1) brightness(1000%);
@@ -287,8 +340,16 @@ button {
   align-items: center;
 }
 
+@media (min-width: 48rem) {
+  .data__info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-8);
+  }
+}
+
 .data__time {
-  font-size: var(--fs-32);
+  font-size: clamp(var(--fs-32), 8vw, var(--fs-56));
   font-weight: var(--fw-light);
 }
 
@@ -339,7 +400,3 @@ button {
   background-image: url("../images/icon-self-care.svg");
   background-position-y: -20%;
 }
-
-/****************************************************
- *******************   MEDIA QUERIES   **************
- ****************************************************/
