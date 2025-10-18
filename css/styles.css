@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+/****************************************************
+ *******************   VARIABLES   ******************
+ ****************************************************/
+
+:root {
+  /* Colors */
+  --clr-purple-500: hsl(235, 45%, 61%);
+  --clr-purple-600: hsl(246, 80%, 60%);
+  --clr-purple-700: hsl(264, 64%, 52%);
+  --clr-orange-300: hsl(15, 100%, 70%);
+  --clr-yellow-300: hsl(43, 84%, 65%);
+  --clr-green-400: hsl(145, 58%, 55%);
+  --clr-blue-300: hsl(195, 74%, 62%);
+  --clr-pink-400: hsl(348, 100%, 68%);
+  --clr-navy-200: hsl(236, 100%, 87%);
+  --clr-navy-800: hsl(235, 41%, 34%);
+  --clr-navy-900: hsl(235, 46%, 20%);
+  --clr-navy-950: hsl(226, 43%, 10%);
+  --clr-gray-200: hsl(0, 0%, 85%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  /* Font */
+  --ff-rubik: "Rubik", sans-serif;
+
+  /* Font sizes */
+  --fs-56: 3.5rem;
+  --fs-40: 2.5rem;
+  --fs-32: 2rem;
+  --fs-24: 1.5rem;
+  --fs-18: 1.125rem;
+  --fs-15: 0.9375rem;
+
+  /* Font weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  /* Line heights */
+  --lh-118: 1.18;
+
+  /* Spacings */
+  --sp-0: 0;
+  --sp-8: 0.5rem;
+  --sp-16: 1rem;
+  --sp-24: 1.5rem;
+  --sp-32: 2rem;
+  --sp-40: 2.5rem;
+}
+
+/****************************************************
+ ********************   RESET   *********************
+ ****************************************************/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-rubik);
+  font-size: var(--fs-18);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-118);
+  background-color: var(--clr-navy-950);
+  color: var(--clr-white);
+}
+
+h1,
+h2,
+h3,
+p {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/****************************************************
+ *******************   STRUCTURE   ******************
+ ****************************************************/
+
+.wrapper {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: clamp(5.0625rem, 21vw, 15.75rem);
+  padding-inline: clamp(
+    1.5rem,
+    calc(24px + (162 - 24) * ((100vw - 430px) / (1280 - 430))),
+    10.125rem
+  );
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 1116px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-24);
+  grid-template-areas:
+    "header"
+    "work"
+    "play"
+    "study"
+    "exercise"
+    "social"
+    "selfcare";
+}
+
+@media (min-width: 48rem) {
+  .dashboard {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "header header header"
+      "work play study"
+      "exercise social selfcare";
+  }
+}
+
+@media (min-width: 80rem) {
+  .dashboard {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-32);
+    grid-template-areas:
+      "header work play study"
+      "header exercise social selfcare";
+  }
+}
+
+/****************************************************
+ ******************   COMPONENTS   ******************
+ ****************************************************/
+
+/****************************************************
+ *******************   HEADER   *********************
+ ****************************************************/
+
+.dashboard__header {
+  grid-area: header;
+  background-color: var(--clr-navy-900);
+  border-radius: var(--sp-16);
+}
+
+.dashboard__user {
+  background-color: var(--clr-purple-600);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-24);
+  padding: var(--sp-32);
+  border-radius: var(--sp-16);
+}
+
+.dashboard__avatar {
+  width: 4rem;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  border: 3px solid var(--clr-white);
+  overflow: hidden;
+}
+
+.dashboard__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dashboard__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.dashboard__text {
+  font-size: var(--fs-15);
+  font-weight: var(--fw-regular);
+  color: var(--clr-navy-200);
+}
+
+.dashboard__username {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-light);
+}
+
+/****************************************************
+ *******************   NAVBAR   *********************
+ ****************************************************/
+
+.dashboard__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard__item {
+  flex: 1;
+  font-weight: var(--fw-regular);
+  color: var(--clr-purple-500);
+  padding-block: var(--sp-24);
+  cursor: pointer;
+}
+
+.dashboard__item:hover,
+.dashboard__item:focus-visible,
+.dashboard__item.is-active {
+  color: var(--clr-white);
+}
+
+/****************************************************
+ *******************   STATS   **********************
+ ****************************************************/
+
+.dashboard__data {
+  padding-block-start: var(--sp-40);
+  border-radius: var(--sp-16);
+  background-repeat: no-repeat;
+  background-position-x: 92%;
+  background-size: 5rem;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-8);
+  background-color: var(--clr-navy-900);
+  border-radius: var(--sp-16);
+  padding: var(--sp-24);
+}
+
+.data:hover {
+  background-color: var(--clr-navy-800);
+}
+
+.data__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data__options {
+  padding: var(--sp-8);
+  cursor: pointer;
+}
+
+.data__options:hover img,
+.data__options:focus-visible img {
+  filter: invert(1) grayscale(1) brightness(1000%);
+}
+
+.data__options:focus-visible {
+  box-shadow: 0 0 4px 2px var(--clr-gray-200);
+  border-radius: var(--sp-8);
+}
+
+.data__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data__time {
+  font-size: var(--fs-32);
+  font-weight: var(--fw-light);
+}
+
+.data__previous {
+  font-size: var(--fs-15);
+  font-weight: var(--fw-regular);
+  color: var(--clr-navy-200);
+}
+
+.dashboard__data--work {
+  grid-area: work;
+  background-color: var(--clr-orange-300);
+  background-image: url("../images/icon-work.svg");
+  background-position-y: -14%;
+}
+
+.dashboard__data--play {
+  grid-area: play;
+  background-color: var(--clr-blue-300);
+  background-image: url("../images/icon-play.svg");
+  background-position-y: -10%;
+}
+
+.dashboard__data--study {
+  grid-area: study;
+  background-color: var(--clr-pink-400);
+  background-image: url("../images/icon-study.svg");
+  background-position-y: -10%;
+}
+
+.dashboard__data--exercise {
+  grid-area: exercise;
+  background-color: var(--clr-green-400);
+  background-image: url("../images/icon-exercise.svg");
+  background-position-y: 0;
+}
+
+.dashboard__data--social {
+  grid-area: social;
+  background-color: var(--clr-purple-700);
+  background-image: url("../images/icon-social.svg");
+  background-position-y: -25%;
+}
+
+.dashboard__data--selfcare {
+  grid-area: selfcare;
+  background-color: var(--clr-yellow-300);
+  background-image: url("../images/icon-self-care.svg");
+  background-position-y: -20%;
+}
+
+/****************************************************
+ *******************   MEDIA QUERIES   **************
+ ****************************************************/
