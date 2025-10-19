@@ -18,6 +18,9 @@ This is a solution to the [Time tracking dashboard challenge on Frontend Mentor]
 - JavaScript
   - DOM manipulation
   - Event listeners
+  - Async functions
+  - Fetch API
+  - Error handling
 
 ## Live site
 
