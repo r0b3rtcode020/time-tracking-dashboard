@@ -25,12 +25,13 @@
   --ff-rubik: "Rubik", sans-serif;
 
   /* Font sizes */
-  --fs-56: 3.5rem;
+  --fs-48: 3rem;
   --fs-40: 2.5rem;
   --fs-32: 2rem;
   --fs-24: 1.5rem;
   --fs-18: 1.125rem;
   --fs-15: 0.9375rem;
+  --fs-14: 0.875rem;
 
   /* Font weights */
   --fw-light: 300;
@@ -349,12 +350,12 @@ button {
 }
 
 .data__time {
-  font-size: clamp(var(--fs-32), 8vw, var(--fs-56));
+  font-size: clamp(var(--fs-32), 6vw, var(--fs-48));
   font-weight: var(--fw-light);
 }
 
 .data__previous {
-  font-size: var(--fs-15);
+  font-size: var(--fs-14);
   font-weight: var(--fw-regular);
   color: var(--clr-navy-200);
 }
